@@ -15,11 +15,12 @@ describe('HealthController', () => {
     expect(controller).toBeDefined();
   });
 
-  it('check() returns status ok and an ISO timestamp', () => {
+  it('check() returns status ok, code 200 and an ISO timestamp', () => {
     jest.useFakeTimers().setSystemTime(new Date('2026-01-01T00:00:00.000Z'));
     try {
       expect(controller.check()).toEqual({
         status: 'ok',
+        code: 200,
         timestamp: '2026-01-01T00:00:00.000Z',
       });
     } finally {
