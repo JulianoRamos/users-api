@@ -48,6 +48,10 @@ curl -X PATCH localhost:3010/users/<uuid> -H 'Content-Type: application/json' \
 
 # remover (204)
 curl -X DELETE localhost:3010/users/<uuid>
+
+# health check (200)
+curl localhost:3010/health
+# {"status":"ok","code":200,"timestamp":"2026-01-01T12:00:00.000Z"}  (timestamp ISO 8601)
 ```
 
 Erros: 400 (validação / id não-UUID), 404 (não encontrado), 409 (e-mail já existe), no formato `{ statusCode, message, error }`.
